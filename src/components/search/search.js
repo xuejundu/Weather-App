@@ -1,6 +1,30 @@
 import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from '../../api';
+import './search.css'
+
+const customStyles = {
+    option: (provided, state) => ({
+        ...provided,
+        backgroundColor: state.isSelected ? "#667292" : state.isFocused ? "#bccad6" : "white",
+        ':active': {
+            ...provided[':active'],
+            backgroundColor: !state.isDisabled
+              ? state.isSelected
+                ? "#bccad6"
+                : "#bccad6"
+              : undefined,
+          }
+    }),
+    control: (provided) => ({
+        ...provided,
+        border: '1px solid #667292',
+        boxShadow: 'none',
+        '&:hover': {
+            border: '1px solid #667292',
+        }
+    })
+}
 
 const Search = ({ onSearchChange }) => {
 
@@ -34,6 +58,7 @@ const Search = ({ onSearchChange }) => {
             value={search}
             onChange={handleOnChange}
             loadOptions={loadOptions}
+            styles={customStyles}
         />
     )
 }

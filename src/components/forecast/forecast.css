@@ -4,14 +4,15 @@
 }
 
 .daily-item {
-    background-color: #f5f5f5;
-    border-radius: 15px;
+    color: #667292;
+    background-color: #FFFFFF;
+    border-radius: 5px;
     height: 40px;
-    margin: 5px;
+    margin: 5px 0px;
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     padding: 5px 20px;
 }
 
@@ -20,7 +21,6 @@
 }
 
 .day {
-    color: #212121;
     flex: 1 1;
     font-weight: 600;
     margin-left: 15px;
@@ -33,7 +33,7 @@
 }
 
 .min-max {
-    color: #757575;
+    color: #8d9db6;
 }
 
 .daily-details-grid {
@@ -44,7 +44,10 @@
     display: grid;
     flex: 1 1;
     grid-template-columns: auto auto;
-    padding: 5px 15px;
+    padding: 0px 15px;
+    
+    background-color: #FFFFFF;
+    border-radius: 5px;
 }
 
 .daily-details-grid-item {
@@ -55,9 +58,35 @@
 }
 
 .daily-details-grid-item label:first-child {
-    color: #757575;
+    color: #515c7b;
 }
 
-.daily-details-grid-item label:second-child {
-    color: #212121;
+.daily-details-grid-item label:last-child {
+    color: #c68093;
+}
+
+.daily-item:hover {
+    background-color: #cfe0e8;
+}
+
+.accordion__button[aria-expanded='true'] div:first-child{
+    background-color: #cfe0e8;
+    margin-bottom: 0;
+}
+
+.accordion__panel {
+    animation: growDown 600ms ease-in-out forwards; 
+    transform-origin: top center;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
 }
